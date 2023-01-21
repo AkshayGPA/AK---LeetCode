@@ -1,0 +1,27 @@
+LeetCode - 53
+
+https://leetcode.com/problems/maximum-subarray/description/
+
+
+
+class Solution {
+    public int maxSubArray(int[] nums) {
+        
+        int max_so_far = Integer.MIN_VALUE;
+        int max_ending_here = 0;
+
+        for (int i=0 ; i<nums.length ; i++){
+            max_ending_here += nums[i]; // 5 ; 9 ; 8 ; 15 ; 23
+
+            if (max_so_far < max_ending_here){
+                max_so_far = max_ending_here; //5 ; 9 ; none ; 15 ; 23 
+            }
+
+            if (max_ending_here < 0){
+                max_ending_here = 0;  //none ; none ; none ; none ; none
+            }
+        }
+
+        return max_so_far; // 23
+    }
+}
