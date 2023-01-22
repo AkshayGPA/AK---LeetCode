@@ -7,7 +7,7 @@ public class BinarySearch {
         
     }
 
-    private boolean isAvailable(int arr[], int target){
+    private boolean isAvailable (int arr[], int target){
         int start = 0;
         int end = arr.length-1;
 
@@ -29,4 +29,4 @@ public class BinarySearch {
     }
 }
 
-arr = [3]
+// arr = [3]
