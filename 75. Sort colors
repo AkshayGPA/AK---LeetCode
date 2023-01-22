@@ -1,6 +1,6 @@
 https://leetcode.com/problems/sort-colors/description/
 
-
+// In place algorithm
 
 cclass Solution {
     public void sortColors(int[] nums) {
@@ -51,7 +51,5 @@ cclass Solution {
             nums[i] = 2;
             // System.out.println(result[i]);
         }
-
-        // return result;
     }
 }
