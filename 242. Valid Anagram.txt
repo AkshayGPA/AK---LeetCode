@@ -1,0 +1,91 @@
+https://leetcode.com/problems/valid-anagram/description/
+
+
+
+class Solution {
+    public boolean isAnagram(String s, String t) {
+
+        // Brute force approach without sorting
+
+        // if (s.length() != t.length()){
+        //     return false;
+        // }
+        
+        // int n = s.length();
+
+        // int [] freq_s = new int[26];
+        // int [] freq_t = new int[26];
+
+        // // Counting frequency of characters in each string ans storing them in the freq arrays.
+
+        // for (int i=0 ; i<n ; i++){
+        //     char ch = s.charAt(i);
+        //     freq_s[ch - 'a'] += 1;
+        // }
+
+        // for (int i=0 ; i<n ; i++){
+        //     char ch = t.charAt(i);
+        //     freq_t[ch - 'a'] += 1;
+        // }
+
+        // // At this point the frequencies of each character in the string is stored in the freq arrays created.
+        // // Now iterating through the frequency arrays and ensuring that the values are same;
+
+        // for (int i=0 ; i<26 ; i++){
+        //     if (freq_s[i] != freq_t[i]){
+        //         return false;
+        //     }
+        // }
+
+        // return true;
+
+
+    // Solving with Hashmaps
+
+        if (s.length() != t.length()){
+            return false;
+        }
+
+        int n = s.length();
+
+        HashMap<Character, Integer> hm = new HashMap<>();
+        HashMap<Character, Integer> hm2 = new HashMap<>();
+
+        for (int i=0 ; i<n ; i++){
+            char ch = s.charAt(i);
+
+            if (hm.containsKey(ch)){
+                int old_freq = hm.get(ch);
+                hm.put(ch, (old_freq+1));
+            }
+            else{
+                hm.put (ch, 1);
+            }
+        }
+
+        for (int i=0 ; i<n ; i++){
+            char ch = t.charAt(i);
+
+            if (hm2.containsKey(ch)){
+                int old_freq = hm2.get(ch);
+                hm2.put(ch, (old_freq+1));
+            }
+            else{
+                hm2.put (ch, 1);
+            }
+        }
+
+        // System.out.println(hm);
+        // System.out.println(hm2);
+
+        // if(hm.equals(hm2)){
+        //     return true;
+        // }
+        // else{
+        //     return false;
+        // }
+
+        return (hm.equals(hm2));
+
+    }
+}
