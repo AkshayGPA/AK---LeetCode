@@ -4,7 +4,10 @@ import java.io.*;
 public class BinarySearch {
     public static void main (String [] args) {
         // Take input using string builder
-        
+        Scanner sc = new Scanner(System.in);
+
+        StringBuilder str = new StringBuilder("");
+        str.append(sc.nextLine());
     }
 
     private boolean isAvailable (int arr[], int target){
@@ -26,6 +29,7 @@ public class BinarySearch {
             }
         }
         
+        return 
     }
 }
 

@@ -1,0 +1,52 @@
+https://leetcode.com/problems/roman-to-integer/
+
+
+class Solution {
+    public int romanToInt(String s) {
+        
+        int value = 0;
+        int number = 0;
+        int prev_char_val = 0;
+
+        for (int i=s.length()-1 ; i>=0 ; i--){
+            switch (s.charAt(i)){
+                case 'I':
+                    number = 1;
+                    break;
+                case 'V':
+                    number = 5;
+                    break;
+                case 'X':
+                    number = 10;
+                    break;
+                case 'L':
+                    number = 50;
+                    break;
+                case 'C':
+                    number = 100;
+                    break;
+                case 'D':
+                    number = 500;
+                    break;
+                case 'M':
+                    number = 1000;
+                    break;
+            }
+
+            // System.out.println(number);
+
+            if (number < prev_char_val){
+                value = value - number;
+                // System.out.println("value at " + i + "th character = " + value);
+            }
+            else {
+                value = value + number;
+                // System.out.println("value at " + i + "th character = " + value);
+            }
+
+            prev_char_val = number;
+        }
+
+        return value;
+    }
+}
