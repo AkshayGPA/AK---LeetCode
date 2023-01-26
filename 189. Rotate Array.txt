@@ -1,0 +1,23 @@
+https://leetcode.com/problems/rotate-array/description/
+
+
+class Solution {
+    public void rotate(int[] nums, int k) {
+        
+        int n = nums.length;
+
+        int[] ans = new int[n];
+        int new_idx = 0;
+
+        for (int j=0 ; j<n ; j++){
+            new_idx = (j+k)%n;
+            ans[new_idx] = nums[j];
+        }
+
+        for (int i=0 ; i<n ; i++){
+            nums[i] = ans[i];
+        }
+
+        // System.out.print(Arrays.toString(ans));
+    }
+}
