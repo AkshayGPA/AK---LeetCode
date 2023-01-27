@@ -1,0 +1,68 @@
+https://leetcode.com/problems/string-compression/description/
+
+
+class Solution {
+    public int compress(char[] chars) {
+        // int [] ch = new int[26];
+
+        // for (int i=0 ; i<chars.length ; i++){
+        //     ch[chars[i]-'a']++;
+        // }
+
+        // System.out.println(Arrays.toString(ch));
+        // return 0;
+
+        String s = "";
+        int count = 1;
+
+        if (chars.length == 1){
+            return 1;
+        }
+
+        for (int i=1 ; i<chars.length ; i++){
+            if (chars[i] == chars[i-1]){
+                count++;   
+            }
+            else{
+                s += chars[i-1];
+                
+                if (count == 1){
+                    // Do nothing.
+                }
+
+                else {
+                    String x = Integer.toString(count);
+                    s += x;
+                }
+
+                count = 1; 
+            }
+
+            if (i == (chars.length-1)){
+                s += chars[i];
+                
+                if (count == 1){
+                    // Do nothing.
+                }
+
+                else {
+                    String y = Integer.toString(count);
+                    s += y;
+                }
+            }
+        }
+
+        for (int i=0 ; i<s.length() ; i++){
+            chars[i] = s.charAt(i);
+        }
+
+        return (s.length());
+    }
+}
+
+// e, e, e, z, z, a, a, a, a
+// e3z2a4
+
+// If the count is 1, we need to add 1 in output.
+// If count is between 2 and 9(inclusive), we need to add 2 to output.
+// If count>9, we need to add 3 to O/p
