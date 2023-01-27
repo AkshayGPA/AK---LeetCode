@@ -1,0 +1,43 @@
+https://leetcode.com/problems/largest-number/https://leetcode.com/problems/largest-number/
+
+
+class Solution {
+    public String largestNumber(int[] nums) {
+        
+        // String s1 = "";
+        // String s2 = "";
+        
+        String ans = "";
+
+        if (nums.length == 1){
+            return (Integer.toString(nums[0]));
+        }
+
+        String s1 = Integer.toString(nums[0]) + Integer.toString(nums[1]);
+        String s2 = Integer.toString(nums[1]) + Integer.toString(nums[0]);        
+
+        if (Long.parseLong(s1) > Long.parseLong(s2)){
+                ans = s1;
+            }
+        else {
+                ans = s2;
+            }
+
+        for (int i=2 ; i<nums.length ; i++){
+            // s1 += (Integer.toString(nums[i]) + Integer.toString(nums[i+1]));
+            // s2 += (Integer.toString(nums[i+1]) + Integer.toString(nums[i]));
+
+            s1 = ans + Integer.toString(nums[i]);
+            s2 = Integer.toString(nums[i]) + ans;
+
+            if (Long.parseLong(s1) > Long.parseLong(s2)){
+                ans = s1;
+            }
+            else {
+                ans = s2;
+            }
+        }
+
+        return ans;
+    }
+}
